@@ -24,11 +24,15 @@ def selection_sort(arr):
 
 
 def bubble_sort(arr):
-
+    for i in range(0, len(arr) - 1):
+        for j in range(0, len(arr) - 1 - i):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
 
-
 # STRETCH: implement the Count Sort function below
+
+
 def count_sort(arr, maximum=-1):
 
     return arr
