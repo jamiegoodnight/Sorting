@@ -16,19 +16,24 @@ def merge(arrA, arrB):
             merged_arr.append(arrB[r])
             r += 1
     if l == lenA:
-        merged_arr.extend(arrB)
+        merged_arr.extend(arrB[r:])
     else:
-        merged_arr.extend(arrA)
+        merged_arr.extend(arrA[l:])
 
     return merged_arr
+
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 
 
 def merge_sort(arr):
-    # TO-DO
-
-    return arr
+    lenA = len(arr)
+    if lenA <= 1:
+        return arr
+    m = round(lenA/2)
+    l = merge_sort(arr[:m])
+    r = merge_sort(arr[m:])
+    return merge(l, r)
 
 
 # STRETCH: implement an in-place merge sort algorithm
