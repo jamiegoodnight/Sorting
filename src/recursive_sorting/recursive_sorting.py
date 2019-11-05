@@ -1,14 +1,31 @@
 # TO-DO: complete the helpe function below to merge 2 sorted arrays
-def merge( arrA, arrB ):
-    elements = len( arrA ) + len( arrB )
-    merged_arr = [0] * elements
+def merge(arrA, arrB):
+    # elements = len( arrA ) + len( arrB )
+    # merged_arr = [0] * elements
     # TO-DO
-    
+    l = 0
+    r = 0
+    lenA = len(arrA)
+    lenB = len(arrB)
+    merged_arr = []
+    while l < lenA and r < lenB:
+        if arrA[l] < arrB[r]:
+            merged_arr.append(arrA[l])
+            l += 1
+        else:
+            merged_arr.append(arrB[r])
+            r += 1
+    if l == lenA:
+        merged_arr.extend(arrB)
+    else:
+        merged_arr.extend(arrA)
+
     return merged_arr
 
-
 # TO-DO: implement the Merge Sort function below USING RECURSION
-def merge_sort( arr ):
+
+
+def merge_sort(arr):
     # TO-DO
 
     return arr
@@ -20,7 +37,8 @@ def merge_in_place(arr, start, mid, end):
 
     return arr
 
-def merge_sort_in_place(arr, l, r): 
+
+def merge_sort_in_place(arr, l, r):
     # TO-DO
 
     return arr
@@ -28,6 +46,6 @@ def merge_sort_in_place(arr, l, r):
 
 # STRETCH: implement the Timsort function below
 # hint: check out https://github.com/python/cpython/blob/master/Objects/listsort.txt
-def timsort( arr ):
+def timsort(arr):
 
     return arr
