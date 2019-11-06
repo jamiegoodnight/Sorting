@@ -7,6 +7,7 @@ def merge(arrA, arrB):
     r = 0
     lenA = len(arrA)
     lenB = len(arrB)
+    # STEP 3: We begin to loop through both arrays and compare them, ordering them as we go. Variables l and r are initialized at 0 meaning [0] postion.
     merged_arr = []
     while l < lenA and r < lenB:
         if arrA[l] < arrB[r]:
@@ -19,6 +20,7 @@ def merge(arrA, arrB):
         merged_arr.extend(arrB[r:])
     else:
         merged_arr.extend(arrA[l:])
+    # STEP 4: We put the arrays together. In an example like merge([1,2],[3,4]) l == lenA and r == 0, therefore merged_arr.extend(arrB[r:] produces [1,2,3,4] because we're adding everything to the right of, and including, position 0)
 
     return merged_arr
 
@@ -30,9 +32,11 @@ def merge_sort(arr):
     lenA = len(arr)
     if lenA <= 1:
         return arr
+    # STEP 1: We find the length of the array because if the length of the array is one then it's already sorted.
     m = round(lenA/2)
     l = merge_sort(arr[:m])
     r = merge_sort(arr[m:])
+    # STEP 2: We split our array down the middle and we pass these two new arrays to merge().
     return merge(l, r)
 
 
